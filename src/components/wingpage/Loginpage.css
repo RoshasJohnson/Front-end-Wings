@@ -1,0 +1,166 @@
+form {
+  margin: 0 auto;
+  width: 75%;
+}
+
+.logintest {
+  font-weight: 900;
+
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.form {
+  border: #0f1c0e;
+  background: #0e1c0f;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.error {
+  color: #bf1616;
+}
+
+p::before {
+  display: inline;
+  content: " ";
+}
+
+input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 30px;
+  border: #ffce00;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+label {
+  line-height: 2;
+  text-align: left;
+  display: block;
+  margin-bottom: 13px;
+  margin-top: 20px;
+  color: white;
+  font-size: 14px;
+  font-weight: 200;
+}
+.newacountText {
+  color: rgb(0, 100, 194);
+  float: right;
+  padding-right: 10px;
+}
+
+.App {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+button[type="button"] {
+  content: "goodbye";
+  display: block;
+  appearance: none;
+
+  color: white;
+  border: none;
+
+  padding: 10px 20px;
+  border-radius: 4px;
+  justify-content: center;
+}
+
+hr {
+  margin-top: 30px;
+}
+
+button {
+  display: block;
+  appearance: none;
+  margin-top: 40px;
+
+  margin-bottom: 20px;
+
+  padding: 10px 20px;
+  align-items: center;
+  border-radius: 30px;
+  margin-left: 30%;
+  font-size: 900;
+}
+.loginpage {
+  margin-top: 10%;
+  background-color: rgb(237, 237, 212);
+  border-radius: 30px;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: fit-content;
+}
+@media screen and (max-width: 780px) {
+  .loginpage {
+    margin-top: 10%;
+    /* background-color: #000000 !important; */
+    width: 100%;
+    background-color: rgb(237, 237, 212);
+    border-radius: 30px;
+    height: fit-content;
+  }
+}
+
+textarea:focus,
+input:focus,
+input[type]:focus,
+.uneditable-input:focus {
+  border-color: rgba(219, 204, 39, 0.8);
+
+  outline: 0 none;
+}
+
+h1 {
+  text-align: center;
+  color: #000000;
+}
+
+.loginbtn {
+  background-color: #ffce00;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+  border: #085a90;
+  width: fit-content;
+}
+
+.cretbtn {
+  background-color: #ffce00 !important;
+  float: right;
+  border: none;
+  color: rgb(0, 0, 0);
+  font-size: 500;
+  border-radius: 30px !important;
+}
+
+.login-box h1 {
+  float: left;
+  font-size: 40px;
+  border-bottom: 6px solid #ffce00;
+  margin-bottom: 50px;
+  padding: 13px 0;
+}
+.textbox {
+  width: 100%;
+  overflow: hidden;
+  font-size: 20px;
+  padding: 8px 0;
+  border-bottom: 1px solid #ffce00;
+}
+.textbox i {
+  width: 26px;
+  float: left;
+  text-align: center;
+}
+
+.align-items-start {
+  font-size: smaller;
+  float: right;
+  color: #000;
+}

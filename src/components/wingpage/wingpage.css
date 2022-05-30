@@ -1,0 +1,33 @@
+
+
+.logoimage {
+    border-radius: 8px;
+    border-radius: 4px;
+    padding: 5px;
+    width: 70%;
+    height: 400px;
+    float: left;
+    
+  }
+  @media screen and (max-width: 480px) {
+    .logoimage {
+      width: 100%;
+      display: none;
+      position:absolute;
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      color: white;
+
+    
+    }
+  }
+
+.introtext{
+    color:black;
+}
+
+
+.navbaric{
+  z-index: 500;
+}

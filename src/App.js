@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import IntroPage from "./Pages/intro/IntroPage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SignUp from "./components/wingpage/register/Signup";
+import HomePage from "./Pages/home/HomePage";
+import UserProfile from "./Pages/profile/UserProfile";
+import Question from "./components/QnA/questions/Question";
+import DuckerBar from "./components/DuckerBar";
+import { useDispatch, useSelector } from "react-redux";
+import EachQuestions from "./components/QnA/questions/EachQuestions";
+import "./App.css"
+import Header from "./components/navbars/Header";
 
-function App() {
+export default function App() {
+  const loginStatus = useSelector((state) => state.userAuth.loginStatus);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app"> 
+      <Router>
+      <Header />
+        <Routes>
+          <Route excat path="/" element={<IntroPage />} />
+          <Route path="/register" element={<SignUp />} />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/register/profile" element={<UserProfile />} />
+          <Route path="/questions" element={<Question />} />
+          <Route path="/questions/:value" element={<EachQuestions />} />
+          <Route path="/roshas/roshas" element={<Header />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
-
-export default App;

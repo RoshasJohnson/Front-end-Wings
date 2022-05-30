@@ -1,0 +1,8 @@
+.duckbar,h1{
+    color:#ffce00;
+    position: sticky;
+    top: 1em;
+    margin: 1%;
+    float: left;
+    width: 100%;
+}
