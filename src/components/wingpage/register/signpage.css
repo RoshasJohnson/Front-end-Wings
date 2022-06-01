@@ -71,3 +71,27 @@ text-align: center; */
   align-items: center;
   width: auto;
 }
+
+.profilepage{
+  margin: 4%;
+width: 100%;
+  margin-top: 100px;
+  align-items: center;
+}
+
+.who-are-form{
+  border-radius: 30px;
+  background-color: #dfdac7;
+  width: 100%;
+  align-items: center;
+
+
+
+}
+
+
+
+.choose-topic{
+  width: 50%;
+
+}

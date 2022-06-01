@@ -9,7 +9,7 @@ function Answers() {
   return (
     <div className="answer-div">
         <div>
-           <h1>Answers</h1>
+           <h4>Answers</h4>
            <div>
              <p>lskdjfklsdjfldskjf</p>
              <p>lskdjfklsdjfldskjf</p>

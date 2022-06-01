@@ -8,28 +8,30 @@ import { Link } from "react-router-dom";
 import Answers from "../answers/Answers";
 import Grid from '@mui/material/Grid';
 import { Box } from "@mui/system";
+import OneQuestion from "./OneQuestion";
 function EachQuestions() {
   const location = useLocation();
   const data = location.state;
-  console.log(data, "sdfsdfdsfdsfdsfdsafasdfadsfadsf");
-  useEffect(() => {}, []);
   return (
-    <Box sx={{ width: '100%' }}>
-    <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-      <Grid item xs={2}>
-      <SideBar/>
-      </Grid>
-      <Grid item xs={8}>
-      <h1>flsfj</h1>
-      </Grid>
-      <Grid item xs={6}>
+
+   <div className="homepage">
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid container spacing={2}>
+          <Grid item xs={0} md={3}>
+            <SideBar />
+          </Grid>
+          <Grid item xs={12} md={6}> 
+          <OneQuestion/>
+          <Answers/>
+          </Grid>
+          <Grid style={{marginTop:"7%",float:"right"}} item xs={3} md={3}>
+           <h5 >Questioner</h5>
+          </Grid>
     
-      </Grid>
-      <Grid item xs={6}>
-      
-      </Grid>
-    </Grid>
-  </Box>
+        </Grid>
+      </Box>
+    </div>
+
   );
 }
 

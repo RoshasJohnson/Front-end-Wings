@@ -6,8 +6,7 @@ export const answerForEachQuesiton = createAsyncThunk(
     const state = getState();
     // const token = state.userAuth.userData.access
 
-    console.log("answerssssssssssssssssssssssssssssssss");
-    const response = await AXIOS.get("questions/", {
+    const response = await AXIOS.get("answers/", {
       headers: {
         "Content-Type": "application/json",
       },

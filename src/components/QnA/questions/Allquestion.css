@@ -1,13 +1,12 @@
 
-.all-questions{
-    background-color: rgb(232, 228, 220);
-}
+
 .question-show{
     color: black;
     margin-left: 2%;
     margin-bottom: 2%;
-    border-top-style:inset;
-    border-top-color: rgb(0, 0, 0);
+    border-top-style:solid;
+    border-width: 1px;
+    border-top-color: rgb(46, 46, 44);
   
 }
 
@@ -16,3 +15,20 @@ a{
     text-decoration: none;
     
 }
+
+.qnas{
+    margin-top: 70px;
+}
+
+.questionForm{
+    margin-top: 10%;
+    border-radius: 30px;
+    background-color: rgb(238, 235, 231);
+
+}
+
+@media screen and (max-width: 480px) {
+    .questionForm {
+        margin-top: 20%;
+    }
+  }

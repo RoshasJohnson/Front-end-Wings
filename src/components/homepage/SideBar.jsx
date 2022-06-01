@@ -10,7 +10,6 @@ import ConnectWithoutContactTwoToneIcon from "@mui/icons-material/ConnectWithout
 import { useNavigate } from "react-router-dom";
 import Mobilebar from "./Mobilebar";
 
-
 function SideBar() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -20,42 +19,47 @@ function SideBar() {
     });
   }
   return (
-    <div>
     <div className="sidebar">
-      <Button
-        onClick={() => {
-          navigate("/home");
-        }}
-        variant="outlined"
-        className="sidebarbtn"
-      >
-        <HomeRoundedIcon /> Home
-      </Button>
-  
-      <Button variant="outlined" className="sidebarbtn">
-        <ConnectWithoutContactTwoToneIcon /> Explore
-      </Button>
-      <Button
-        onClick={() => {
-          navigate("/questions");
-        }}
-        variant="outlined"
-        className="sidebarbtn"
-      >
-        <QuizRoundedIcon />
-        Question Club
-      </Button>
-      <Button variant="outlined" className="sidebarbtn">
-        <SendRoundedIcon /> Message
-      </Button>
-      <Button variant="outlined" className="sidebarbtn">
-        <SentimentSatisfiedRoundedIcon />
-        Profile
-      </Button>
-      <Button style={{backgroundColor:"#ffce00",color:"black"}} variant="contained" onClick={logout}>
-        Logout out
-      </Button>
-    </div >
+      <div className="homepage">
+        <Button
+          onClick={() => {
+            navigate("/home");
+          }}
+          variant="outlined"
+          className="sidebarbtn"
+        >
+          <HomeRoundedIcon /> Home
+        </Button>
+
+        <Button variant="outlined" className="sidebarbtn">
+          <ConnectWithoutContactTwoToneIcon /> Explore
+        </Button>
+        <Button
+          onClick={() => {
+            navigate("/questions");
+          }}
+          variant="outlined"
+          className="sidebarbtn"
+        >
+          <QuizRoundedIcon />
+          Question
+        </Button>
+        <Button variant="outlined" className="sidebarbtn">
+          <SendRoundedIcon /> Chats
+        </Button>
+        <Button variant="outlined" className="sidebarbtn">
+          <SentimentSatisfiedRoundedIcon />
+          Profile
+        </Button>
+        <Button
+          style={{ backgroundColor: "#ffce00", color: "black" }}
+          variant="contained"
+          onClick={logout}
+        >
+          Logout out
+        </Button>
+      </div>
+      <Mobilebar />
     </div>
   );
 }

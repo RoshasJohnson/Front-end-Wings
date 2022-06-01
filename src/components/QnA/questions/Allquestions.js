@@ -5,6 +5,7 @@ import { Card, Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { questionFetch } from "../../../state/reducers/questions/questionReducer";
 import { Container, Typography } from "@mui/material";
+import Topicswise from "./Topicswise";
 
 function Allquestions() {
   const navigate = useNavigate();
@@ -16,20 +17,11 @@ function Allquestions() {
     console.log("Question page");
   }, []);
   return (
-    <div className="all-questions">
-      {questions.map((question)=>
+    <div className="qnas">
+      {questions.map((question,key)=>
       <div className="question-show">
-      
-        <Row>
-          <Col xs={2}>
-            <p>0 answers</p>
-          </Col>
-          <Col xs={5}>
-            <p>asked:  <Link to ="questions/"> {question.questioner.first_name}</Link>   </p>
-          </Col>
-        </Row>
         <div className="">
-          <Link to={ `${question.question_title}` }state={{ data: question }}>{question.question_title  }</Link>
+          <Link  to={ `${question.question_title}` }state={{ data: question }}>{question.question_title  }</Link>
         </div>
       </div>
         )}  

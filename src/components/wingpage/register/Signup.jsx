@@ -21,7 +21,7 @@ function Signup() {
     console.log(details);
    dispatch(userRegister(details));
    if(loginStatus){
-   navigate("/home")}
+   navigate("/who-am-i")}
   };
   return (
     <div className="loginpage">

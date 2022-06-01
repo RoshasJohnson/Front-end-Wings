@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { useNavigate } from "react-router-dom";
 import AXIOS from "../../../axios";
 
 export const userVerify = createAsyncThunk(
@@ -7,6 +8,8 @@ export const userVerify = createAsyncThunk(
     console.log("datassss", data);
     const response = await AXIOS.post("login", data);
     console.log(response.data);
+   
+   
     return response.data;
   }
 );
@@ -18,6 +21,7 @@ export const userRegister = createAsyncThunk(
       console.log("responseData", data);
       const response = await AXIOS.post("create_user/", data);
       console.log(response.data);
+
       return response.data;
     }
   );
@@ -25,8 +29,8 @@ export const userRegister = createAsyncThunk(
 
 const localData = localStorage.getItem("access")
   ? {
-      access: JSON.parse(localStorage.getItem("access")),
-      refresh: JSON.parse(localStorage.getItem("refresh")),
+      access: localStorage.getItem("access"),
+      refresh:localStorage.getItem("refresh"),
     }
   : {};
 
@@ -51,8 +55,8 @@ const userLogin = createSlice({
       state.userData = action.payload;
       state.loading = false;
       state.loginStatus = true;
-      localStorage.setItem("access", JSON.stringify(action.payload.jwt.access));
-      localStorage.setItem("refresh", JSON.stringify(action.payload.jwt.refresh));
+      localStorage.setItem("access", action.payload.jwt.access);
+      localStorage.setItem("refresh", action.payload.jwt.refresh);
       localStorage.setItem("loginStatus", true);
     },
     [userVerify.pending]: (state, action) => {

@@ -8,6 +8,7 @@ import QuizRoundedIcon from "@mui/icons-material/QuizRounded";
 import { useDispatch } from "react-redux";
 import ConnectWithoutContactTwoToneIcon from "@mui/icons-material/ConnectWithoutContactTwoTone";
 import { useNavigate } from "react-router-dom";
+import { Col, Row } from "react-bootstrap";
 
 function Mobilebar() {
   const navigate = useNavigate();
@@ -19,16 +20,18 @@ function Mobilebar() {
   }
   return (
     <div className="mobile_screen">
-      <Button
+     <Row>
+         <Col sx ={2}>
+         <Button
         onClick={() => {
           navigate("/home");
         }}
         variant="outlined"
-        className="sidebarbtn"
+        
       >
         <HomeRoundedIcon />
       </Button>
-      <Button variant="outlined" className="sidebarbtn">
+      <Button variant="outlined" >
         <ConnectWithoutContactTwoToneIcon />
       </Button>
       <Button
@@ -36,20 +39,19 @@ function Mobilebar() {
           navigate("/questions");
         }}
         variant="outlined"
-        className="sidebarbtn"
+       
       >
         <QuizRoundedIcon />
   
       </Button>
-      <Button variant="outlined" className="sidebarbtn">
+      <Button variant="outlined" >
         <SendRoundedIcon />
       </Button>
-      <Button variant="outlined" className="sidebarbtn">
+      <Button variant="outlined" >
         <SentimentSatisfiedRoundedIcon />
       </Button>
-      <Button variant="outlined" onClick={logout} className="sidebar_wing">
-     
-      </Button>
+         </Col>
+     </Row>
     </div>
   );
 }

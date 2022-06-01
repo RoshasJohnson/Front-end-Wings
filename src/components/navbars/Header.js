@@ -1,13 +1,14 @@
 import styled from "@emotion/styled";
 import SearchIcon from "@mui/icons-material/Search";
 import React from "react";
+import Button from '@mui/material/Button';
 
 function Header() {
   return (
     <Container>
       <Content>
         <Logo>
-          <h3>Duck Club</h3>
+        <Button  style={{backgroundColor:"#ffce00",color:"black"}} variant="contained">Duck Club</Button>
         </Logo>
         <Search>
           <div>
