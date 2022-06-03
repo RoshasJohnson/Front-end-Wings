@@ -31,7 +31,7 @@ function Question() {
           <Grid item xs={0} md={3}>
             <SideBar />
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={8}>
             <Button
               style={{
                 marginTop: "10%",

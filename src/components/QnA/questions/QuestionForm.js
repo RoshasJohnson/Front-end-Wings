@@ -59,7 +59,7 @@ function QuestionForm() {
     }
 
     console.log("worked");
-    formData.append("question_title", details.question);
+    formData.append("question_title", details.title);
     formData.append("question", details.question);
     formData.append("topic", details.topic);
     formData.append("image", details.image);

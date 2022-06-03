@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import SideBar from "../../components/homepage/SideBar";
 import "../home/Homepage.css";
 import FeedClub from "../../components/homepage/feeds/FeedClub";
-import { Success } from "../../components/Alerts";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
@@ -13,8 +12,6 @@ import Grid from "@mui/material/Grid";
 function HomePage() {
   const loginStatus = useSelector((state) => state.userAuth.loginStatus);
   const navigate = useNavigate();
-
-  console.log(loginStatus, "++++++++++++++++++++++++++++++++++++++++++++++++");
   useEffect(() => {
     if (loginStatus) {
       navigate("/home");
@@ -34,7 +31,10 @@ function HomePage() {
           <Grid item xs={0} md={3}>
             <SideBar />
           </Grid>
-          <Grid item xs={12} md={8}> <FeedClub/></Grid>
+          <Grid item xs={12} md={8}>
+            {" "}
+            <FeedClub />
+          </Grid>
           <Grid item xs={6} md={4}></Grid>
           <Grid item xs={6} md={8}></Grid>
         </Grid>

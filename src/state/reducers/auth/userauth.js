@@ -7,30 +7,25 @@ export const userVerify = createAsyncThunk(
   async (data) => {
     console.log("datassss", data);
     const response = await AXIOS.post("login", data);
-    console.log(response.data);
-   
-   
+
     return response.data;
   }
 );
 
-
 export const userRegister = createAsyncThunk(
-    "REGISTER/Authentication",
-    async (data) => {
-      console.log("responseData", data);
-      const response = await AXIOS.post("create_user/", data);
-      console.log(response.data);
+  "REGISTER/Authentication",
+  async (data) => {
+    console.log("responseData", data);
+    const response = await AXIOS.post("create_user/", data);
 
-      return response.data;
-    }
-  );
-
+    return response.data;
+  }
+);
 
 const localData = localStorage.getItem("access")
   ? {
       access: localStorage.getItem("access"),
-      refresh:localStorage.getItem("refresh"),
+      refresh: localStorage.getItem("refresh"),
     }
   : {};
 
@@ -66,26 +61,25 @@ const userLogin = createSlice({
       state.loading = false;
       state.error = "Invalid credential";
     },
-    [userRegister.fulfilled]:(state,action)=>{
+    [userRegister.fulfilled]: (state, action) => {
       state.userData = action.payload;
       state.loading = false;
       state.loginStatus = true;
       localStorage.setItem("access", JSON.stringify(action.payload.jwt.access));
       console.log(action.payload.access);
-      localStorage.setItem("refresh", JSON.stringify(action.payload.jwt.refresh));
+      localStorage.setItem(
+        "refresh",
+        JSON.stringify(action.payload.jwt.refresh)
+      );
       localStorage.setItem("loginStatus", true);
-    }
-    ,
-    [userRegister.pending]:(state,action)=>{
+    },
+    [userRegister.pending]: (state, action) => {
       state.loading = true;
-    
-    }
-    ,
-    [userRegister.rejected]:(state,action)=>{
-      state.loading=false;
-      state.error = "Invalid email or password try again "
-    }
-    ,
+    },
+    [userRegister.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = "Invalid email or password try again ";
+    },
     logout: (state, acion) => {
       state.userData = {};
       state.loginStatus = false;
@@ -93,13 +87,7 @@ const userLogin = createSlice({
       localStorage.removeItem("refresh");
       localStorage.removeItem("loginStatus");
     },
-   
   },
-}); 
-
-
-
-
+});
 
 export default userLogin.reducer;
-

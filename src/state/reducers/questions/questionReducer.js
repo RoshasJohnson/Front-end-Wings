@@ -6,8 +6,6 @@ export const questionFetch = createAsyncThunk(
   async (_, { getState }) => {
     const state = getState();
     const token = state.userAuth.userData.access;
-
-    console.log("constllllllll");
     const response = token
       ? await AXIOS.get("questions/", {
           headers: {
@@ -15,6 +13,7 @@ export const questionFetch = createAsyncThunk(
             "Content-Type": "application/json",
           },
         })
+        
       : await AXIOS.get("questions/", {
           headers: {
             "Content-Type": "application/json",

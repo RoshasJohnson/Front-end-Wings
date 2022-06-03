@@ -59,7 +59,6 @@ function SideBar() {
           Logout out
         </Button>
       </div>
-      <Mobilebar />
     </div>
   );
 }
