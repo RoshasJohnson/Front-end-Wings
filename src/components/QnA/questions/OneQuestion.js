@@ -18,19 +18,20 @@ function OneQuestion() {
         attached_file,
         questioner,
         created_at,
+        
       },
     },
   } = location;
-
+console.log(location.state);
   const formatDate = Moment(created_at).format("DD-MM-YYYY");
 
   return (
     <div className="one_qna">
       <Card style={{ padding: "10px" }}>
         <Stack direction={"row"} spacing={2}>
-          <Avatar src="/broken-image.jpg" />
-          <Link to="">
-            <p>{questioner.first_name}</p>
+          <Avatar src={questioner.avatar}/>
+          <Link to ={`/${questioner.username}`}>
+            <p>{questioner.fullname}</p>
           </Link>
 
         </Stack>
@@ -54,8 +55,7 @@ function OneQuestion() {
         ) : (
           ""
         )}
-
-        <Link to="">
+        <Link to={`/questions/topic/${question_topic.topics}`}  state={{ data: "topic" }}  >
           <p
             style={{
               margin: "1%",

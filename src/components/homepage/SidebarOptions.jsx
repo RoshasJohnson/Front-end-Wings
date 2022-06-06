@@ -5,9 +5,7 @@ import "./Sidebar.css";
 
 function SidebarOptions({ active, Icon }) {
   return (
-    <div className="sidebar">
       <SideBar />
-    </div>
   );
 }
 

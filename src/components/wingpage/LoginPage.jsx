@@ -5,9 +5,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { userVerify } from "../../state/reducers/auth/userauth";
 import GoogleAuth from "./GoogleAuth";
 
+
+
+
+
+
 function LoginPage() {
   const navigate = useNavigate();
   const loginStatus = useSelector((state) => state.userAuth.loginStatus);
+  console.log(loginStatus,"loginstatsus");
   const error = useSelector((state) => state.userAuth.error);
   const [details, setdetails] = useState({ email: "", password: "" });
   const dispatch = useDispatch();
@@ -16,15 +22,19 @@ function LoginPage() {
     e.preventDefault();
     if (details !== "") {
       dispatch(userVerify(details));
-      // navigate("/home");
+      if (loginStatus ==true) {
+        navigate("/home");
+      }
+      
     }
   };
 
   useEffect(() => {
     console.log(loginStatus);
-    if (loginStatus) {
+    if (loginStatus ==true) {
       navigate("/home");
     }
+    
   }, [loginStatus, navigate]);
 
   return (

@@ -7,7 +7,7 @@ export const userVerify = createAsyncThunk(
   async (data) => {
     console.log("datassss", data);
     const response = await AXIOS.post("login", data);
-
+    console.log(response.data);
     return response.data;
   }
 );
@@ -17,16 +17,15 @@ export const userRegister = createAsyncThunk(
   async (data) => {
     console.log("responseData", data);
     const response = await AXIOS.post("create_user/", data);
-
+  
     return response.data;
   }
 );
 
-const localData = localStorage.getItem("access")
-  ? {
-      access: localStorage.getItem("access"),
-      refresh: localStorage.getItem("refresh"),
-    }
+const localData = localStorage.getItem("userData")
+  ? 
+    JSON.parse(localStorage.getItem("userData"))
+
   : {};
 
 const loginStatusStorage = localStorage.getItem("loginStatus")
@@ -44,6 +43,10 @@ const userLogin = createSlice({
     loading: false,
     loginStatus: loginStatusStorage,
     error: "",
+  },reducers:{
+    setData :(state,action)=>{
+      state.userData = action.payload
+    }
   },
   extraReducers: {
     [userVerify.fulfilled]: (state, action) => {
@@ -51,27 +54,28 @@ const userLogin = createSlice({
       state.loading = false;
       state.loginStatus = true;
       localStorage.setItem("access", action.payload.jwt.access);
-      localStorage.setItem("refresh", action.payload.jwt.refresh);
-      localStorage.setItem("loginStatus", true);
+      // localStorage.setItem("refresh", action.payload.jwt.refresh);
+      console.log(action.payload,'dsfsafasdfasd');
+      localStorage.setItem("userData", JSON.stringify(action.payload));
     },
     [userVerify.pending]: (state, action) => {
       state.loading = true;
     },
     [userVerify.rejected]: (state, action) => {
       state.loading = false;
-      state.error = "Invalid credential";
+      state.error =  "incorrect user name or password"
     },
     [userRegister.fulfilled]: (state, action) => {
       state.userData = action.payload;
       state.loading = false;
       state.loginStatus = true;
-      localStorage.setItem("access", JSON.stringify(action.payload.jwt.access));
-      console.log(action.payload.access);
+      localStorage.setItem("access", action.payload.jwt.access);
       localStorage.setItem(
         "refresh",
-        JSON.stringify(action.payload.jwt.refresh)
+        action.payload.jwt.refresh
       );
-      localStorage.setItem("loginStatus", true);
+  
+      localStorage.setItem("userData", JSON.stringify(action.payload));
     },
     [userRegister.pending]: (state, action) => {
       state.loading = true;
@@ -85,9 +89,10 @@ const userLogin = createSlice({
       state.loginStatus = false;
       localStorage.removeItem("access");
       localStorage.removeItem("refresh");
-      localStorage.removeItem("loginStatus");
+      localStorage.removeItem("userData");
+
     },
   },
 });
-
+export const {setData } = userLogin.actions
 export default userLogin.reducer;

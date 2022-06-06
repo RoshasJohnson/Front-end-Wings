@@ -1,26 +1,28 @@
 import React, { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import SideBar from "../../components/homepage/SideBar";
 import "../home/Homepage.css";
 import FeedClub from "../../components/homepage/feeds/FeedClub";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
+import { useDispatch, useSelector } from "react-redux";
 import Grid from "@mui/material/Grid";
+import { TopicFetch } from "../../state/reducers/questions/TopicReducer";
 
 function HomePage() {
-  const loginStatus = useSelector((state) => state.userAuth.loginStatus);
+  const dispatch = useDispatch();
+  const loginStatus = localStorage.getItem("loginStatus")
   const navigate = useNavigate();
   useEffect(() => {
-    if (loginStatus) {
-      navigate("/home");
-    } else {
-      navigate("/");
-    }
+    // if (loginStatus) {
+    //   navigate("/home");
+    // } else {
+    //   navigate("/");
+    // }
   }, [loginStatus, navigate]);
 
   useEffect(() => {
+    dispatch(TopicFetch());
     console.log("second useeffect ");
   }, []);
 

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./Allquestion.css";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { Col, Row } from "react-bootstrap";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { Col, Row, Spinner } from "react-bootstrap";
 import Card from "@mui/material/Card";
 import { useDispatch, useSelector } from "react-redux";
 import { questionFetch } from "../../../state/reducers/questions/questionReducer";
@@ -12,17 +12,23 @@ import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import Topicswise from "./Topicswise";
 
+
 function Allquestions() {
+  const loc = useLocation()
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const questions = useSelector((state) => state.fetchQuestions.AllQuesitons);
 
+  const questions = useSelector((state) => state.fetchQuestions.AllQuesitons);
+  const loading =  useSelector((state) => state.fetchQuestions.loading)
+  console.log(loading,"loading status");
   useEffect(() => {
     dispatch(questionFetch());
     console.log("Question page");
   }, []);
   return (
+  
     <div className="qnas">
+        {loading &&  <Spinner variant="warning" animation="border" />}
       {questions.map((question, key) => {
         return (
           <div style={{marginTop:"2%"}}>

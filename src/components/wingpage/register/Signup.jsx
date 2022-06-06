@@ -20,19 +20,10 @@ function Signup() {
     e.preventDefault();
     console.log(details);
    dispatch(userRegister(details));
-   if(loginStatus){
    navigate("/who-am-i")}
-  };
+
   return (
     <div className="loginpage">
-      {/* <Navbar bg="light">
-        <Container>
-          <Navbar.Brand style={{ color: "#FFCE00" }} href="">
-            DuckClub
-          </Navbar.Brand>
-        </Container>
-      </Navbar> */}
-
       <div className="login-box">
         <Form onSubmit={handleSubmit}>
           <h1>Sign up now</h1>

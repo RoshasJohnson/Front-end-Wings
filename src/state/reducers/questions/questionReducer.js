@@ -5,7 +5,8 @@ export const questionFetch = createAsyncThunk(
   "ALL_QUESTION/GET",
   async (_, { getState }) => {
     const state = getState();
-    const token = state.userAuth.userData.access;
+    const token = state.userAuth.userData.jwt.access;
+    console.log(token,"acces token");
     const response = token
       ? await AXIOS.get("questions/", {
           headers: {
