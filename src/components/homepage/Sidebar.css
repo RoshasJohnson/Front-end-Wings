@@ -16,16 +16,18 @@
    position: fixed;
   }
 }
-/* 
+.mobile_screen{
+  display: none;
+}
 @media screen and (max-width: 780px) {
     .mobile_screen {
       display: block;
       bottom: 0;    
       position: fixed;
       width: 100%;
-      position: fixed;
+      background-color: #000000;
     }
-  } */
+  } 
 
 .sidebar_wing {
   background-color: #1c9bf0 !important;

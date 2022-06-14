@@ -24,6 +24,6 @@ function Topicswise({data}) {
         
     </Stack>
   )
-}
+} 
 
 export default Topicswise

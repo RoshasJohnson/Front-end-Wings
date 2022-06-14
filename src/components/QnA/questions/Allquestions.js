@@ -14,21 +14,22 @@ import Topicswise from "./Topicswise";
 
 
 function Allquestions() {
-  const loc = useLocation()
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+// =====================================
   const questions = useSelector((state) => state.fetchQuestions.AllQuesitons);
   const loading =  useSelector((state) => state.fetchQuestions.loading)
-  console.log(loading,"loading status");
+  // =====================================
+
   useEffect(() => {
     dispatch(questionFetch());
     console.log("Question page");
   }, []);
+  // =====================================
   return (
   
     <div className="qnas">
-        {loading &&  <Spinner variant="warning" animation="border" />}
+        {loading &&  <Spinner variant="info" animation="border" />}
       {questions.map((question, key) => {
         return (
           <div style={{marginTop:"2%"}}>
@@ -44,7 +45,6 @@ function Allquestions() {
                     </Link>
                   </Typography>
                 </CardContent>
-                {/* <p>s</p> */}
               </Card>
             </Row>
           </div>

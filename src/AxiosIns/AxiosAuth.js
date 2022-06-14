@@ -1,10 +1,8 @@
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-const   token = localStorage.getItem('access')
-console.log(token);
+console.log(localStorage.getItem('access'));
 export const AxiosAuth = axios.create({
 
   baseURL: 'http://localhost:8000/',
-  headers: { Authorization: `Bearer ${token}` },
+  headers: { Authorization: `Bearer ${localStorage.getItem('access')}` },
 });
 

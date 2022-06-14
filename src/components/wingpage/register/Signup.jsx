@@ -20,7 +20,8 @@ function Signup() {
     e.preventDefault();
     console.log(details);
    dispatch(userRegister(details));
-   navigate("/who-am-i")}
+   navigate("/who-am-i")
+  }
 
   return (
     <div className="loginpage">

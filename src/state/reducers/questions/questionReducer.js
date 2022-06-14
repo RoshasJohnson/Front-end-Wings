@@ -30,9 +30,14 @@ const fetchAllQuestion = createSlice({
   initialState: {
     AllQuesitons: [],
     loading: false,
+    success: false,
     error: "",
   },
-  reducers: {},
+  reducers: {
+    setSuccess: (state, action) => {
+      state.success = action.payload;
+    }
+  },
   extraReducers: {
     [questionFetch.fulfilled]: (state, action) => {
       state.AllQuesitons = action.payload;
@@ -50,3 +55,5 @@ const fetchAllQuestion = createSlice({
 });
 
 export default fetchAllQuestion.reducer;
+export const { setSuccess } = fetchAllQuestion.actions;
+

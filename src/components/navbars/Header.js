@@ -1,14 +1,24 @@
 import styled from "@emotion/styled";
 import SearchIcon from "@mui/icons-material/Search";
 import React from "react";
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 
 function Header() {
   return (
     <Container>
       <Content>
         <Logo>
-        <Button  style={{backgroundColor:"#ffce00",color:"black"}} variant="contained">Duck Club</Button>
+          <Button
+            style={{
+              backgroundColor: "#1c9bf0",
+              color: "white",
+
+              fontWeight: "700",
+            }}
+            variant="contained"
+          >
+            Wings
+          </Button>
         </Logo>
         <Search>
           <div>
@@ -51,18 +61,17 @@ const Logo = styled.span`
 const Search = styled.div`
   opacity: 1;
   flex-grow: 1;
-  width: fit-content;
+  width: "70%";
   position: relative;
   & > div {
     max-width: 380px;
     input {
-    
       border: none;
       box-shadow: none;
       background-color: #ece9e3;
       border-radius: 2px;
       padding: 0 8px 0 40px;
-      width:218px ;
+      width: "70%";
       line-height: 1.75;
       font-weight: 14px;
       border-color: white;
@@ -73,11 +82,10 @@ const Search = styled.div`
   }
 `;
 
-const SearchIc = styled.div `
-width: 40px;
-position: absolute;
-z-index: 1;
-top: 5px;
-left: 2px;
-
-`
+const SearchIc = styled.div`
+  width: 40px;
+  position: absolute;
+  z-index: 1;
+  top: 5px;
+  left: 2px;
+`;

@@ -6,13 +6,13 @@ import Avatar from "@mui/material/Avatar";
 import { MDBInput } from "mdbreact";
 import { AxiosAuth } from "../../../AxiosIns/AxiosAuth";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setData } from "../../../state/reducers/auth/userauth";
 import "./signpage.css";
-
+import axios from "../../../axios";
 
 function UserTopic() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   // =====================================
   const [error, setError] = useState({
@@ -29,17 +29,19 @@ function UserTopic() {
     LName: "",
     bio: "",
   });
+
+  console.log(details.image);
   // =====================================
   const [Topic, setTopic] = useState([]);
   // =====================================
   const handleChange = (selectedOption) => {
     selectedOption.map((item) => {
-      console.log(Topic); 
+      console.log(Topic);
       setTopic([...Topic, item.value]);
     });
   };
   // =====================================
-
+  // console.log(localStorage.getItem("access"));
   useEffect(() => {
     AXIOS.get("topics").then((res) => {
       const topicsData = res.data.topics;
@@ -52,10 +54,16 @@ function UserTopic() {
   }, []);
   // =====================================
   const formData = new FormData();
+  // const userid =  useSelector((state) => state.userAuth.loginStatus)
+
+  
+  const token = useSelector((state) => state.userAuth.userData.jwt.access)
+
+
   const formSubmit = (e) => {
     e.preventDefault();
     console.log(details);
-  // =====================================
+    // =====================================
     // function check_details() {
     //   if (details.fName == "") {
     //     setError({
@@ -76,24 +84,29 @@ function UserTopic() {
     //     });
     //   }
     // }
-  // =====================================
-    console.log("worked");
+    // =====================================
     formData.append("Fname", details.FName);
     formData.append("Lname", details.LName);
     formData.append("bio", details.bio);
     formData.append("topics", Topic);
-    formData.append("avatar", details.image);
-    console.log(formData);
-    AxiosAuth.post("/create-profile", formData)
+    formData.append("avatar", details.image, "avatar.png");
+
+    axios
+      .put("/create-profile", formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((response) => {
         console.log(response);
-        dispatch(setData(response.data))
-         navigate("/home");
+        dispatch(setData(response.data));
+        navigate("/home");
       })
       .catch((error) => {
         console.log(error);
       });
   };
+  // =====================================
 
   return (
     <div>
@@ -101,9 +114,15 @@ function UserTopic() {
       <form onSubmit={formSubmit} style={{ justifyContent: "center" }}>
         <Avatar
           style={{ alignItems: "center" }}
-          alt="Remy Sharp"
-          src="/static/images/avatar/1.jpg"
+          src={details.image}
           sx={{ width: 356, height: 200 }}
+        />
+        <input
+          name="image"
+          type="file"
+          onChange={(e) => setDetails({ ...details, image: e.target.files[0] })}
+          multiple
+          accept="image/*"
         />
         <label style={{ color: "black" }} htmlFor="">
           enter your first name

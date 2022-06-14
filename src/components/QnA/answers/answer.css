@@ -19,3 +19,55 @@ h1
 {
     color: black !important;
 }
+
+.answer-controll{
+    margin-left: 2%;
+} 
+
+.voteIcon{
+    color: #1c9bf0;
+    cursor: pointer;
+    
+
+}
+
+.votedIcon{
+    color: #61ec04;
+    cursor: pointer;
+}
+
+.ansControll{
+    display: flex;
+}
+.checkIcon{
+    margin-left: 2%;
+    color: #1c9bf0;
+    cursor: pointer;
+
+}
+
+.checkIcon:hover.pic-answer{
+    color: #02ff85 !important;
+    display: block;
+    
+}
+
+.checkdIcon{
+    color: #02ff85;
+    margin-left: 2%;
+    cursor: pointer;
+
+}
+
+.pic-answer{
+    
+    position: relative;
+    display: none;
+    border-bottom: 1px dotted black;
+}
+.vote-answer{
+    position: relative;
+    display: none;
+    border-bottom: 1px dotted black;
+}
+

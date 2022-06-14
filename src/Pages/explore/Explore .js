@@ -13,9 +13,13 @@ function Explore() {
             <SideBar />
           </Grid>
 
-          <Row style={{ marginTop: "10%" }}>
-            <Col>
-            <UserProfileCard/>
+          <Row sx={9} style={{ marginTop: "10%" }}>
+            <Col sx={2}>
+              <UserProfileCard />
+            </Col>
+
+            <Col sx={2}>
+              <UserProfileCard />
             </Col>
           </Row>
         </Grid>

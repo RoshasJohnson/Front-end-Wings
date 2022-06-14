@@ -1,0 +1,10 @@
+.text-input{
+    border: none;
+    margin-top: 2%;
+}
+.modal-div::-webkit-scrollbar{
+    width: 1em;
+}
+.modal-div{
+    margin-top: 5%;
+}

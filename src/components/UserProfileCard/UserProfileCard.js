@@ -1,82 +1,85 @@
 import React from "react";
-import "./UserProfileCard.css";
+import "./UserProfileCard.css"
 function UserProfileCard() {
+  const { useState } = React;
+  const [usenumber, setusenumber] = useState(1);
+
+  const [fullimage, setfullimage] = useState(true);
+
+  const [isActive, setisActive] = useState(false);
+
+  const [heart, setheart] = useState(true);
+
+  const ImageClick = () => {
+    if (isActive) {
+      setisActive(false);
+    } else {
+      setisActive(true);
+    }
+  };
+  const FullImage = () => {
+    if (fullimage) {
+      setfullimage(false);
+    } else {
+      setfullimage(true);
+    }
+  };
+
+  const AddUser = () => {
+    setusenumber(usenumber + 1);
+  };
+
+  const Heart = () => {
+    if (heart) {
+      setheart(false);
+    } else {
+      setheart(true);
+    }
+  };
+
   return (
-    <div>
-      <link
-        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
-        rel="stylesheet"
-      />
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card user-card">
-              <div class="card-header">
-                <h5>Profile</h5>
-              </div>
-              <div class="card-block">
-                <div class="user-image">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                    class="img-radius"
-                    alt="User-Profile-Image"
-                  />
-                </div>
-                <h6 class="f-w-600 m-t-25 m-b-10">Alessa Robert</h6>
-                <p class="text-muted">Active | Male | Born 23.05.1992</p>
-                <hr />
-                <p class="text-muted m-t-15">Activity Level: 87%</p>
-                <ul class="list-unstyled activity-leval">
-                  <li class="active"></li>
-                  <li class="active"></li>
-                  <li class="active"></li>
-                  <li></li>
-                  <li></li>
-                </ul>
-                <div class="bg-c-yellow counter-block m-t-10 p-20">
-                  <div class="row">
-                    <div class="col-4">
-                      <i class="fa fa-comment"></i>
-                      <p>1256</p>
-                    </div>
-                    <div class="col-4">
-                      <i class="fa fa-user"></i>
-                      <p>8562</p>
-                    </div>
-                    <div class="col-4">
-                      <i class="fa fa-suitcase"></i>
-                      <p>189</p>
-                    </div>
-                  </div>
-                </div>
-                <p class="m-t-15 text-muted">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
-                </p>
-                <hr />
-                <div class="row justify-content-center user-social-link">
-                  <div class="col-auto">
-                    <a href="#!">
-                      <i class="fa fa-facebook text-facebook"></i>
-                    </a>
-                  </div>
-                  <div class="col-auto">
-                    <a href="#!">
-                      <i class="fa fa-twitter text-twitter"></i>
-                    </a>
-                  </div>
-                  <div class="col-auto">
-                    <a href="#!">
-                      <i class="fa fa-dribbble text-dribbble"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
+ 
+      <div style={{width:"fit-content"}}  className="">
+        <div className={`card ${isActive ? "black" : ""}`}>
+          <div className={`top_part ${isActive ? "font_icons" : ""}`}>
+            <i className="fa fa-arrow-left"></i>
+            <div className="icons">
+              <i onClick={ImageClick} className="fa fa-moon-o"></i>
+              <i
+                onClick={Heart}
+                className={`fa ${heart ? "fa-heart-o" : "fa-heart"}`}
+              ></i>
+              <i className="fa fa-ellipsis-v"></i>
             </div>
+          </div>
+          <div className={`overlay ${fullimage ? "d-none" : ""}`}>
+            <small onClick={FullImage} className="fa fa-close"></small>
+            <img src="https://imgur.com/oP37oit.jpg" />
+          </div>
+          <div className="circle">
+            <span onClick={FullImage}>
+              <img src="https://imgur.com/oP37oit.jpg" />
+            </span>
+            <h3>Djvoue</h3>
+            <h6>Design Track</h6>
+          </div>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when.{" "}
+          </p>
+          <hr></hr>
+          <div className="button">
+            <button onClick={AddUser}>Add User {usenumber}</button>
+          </div>
+          <div className="social">
+            <i className="fa fa-twitter"></i>
+            <i className="fa fa-linkedin"></i>
+            <i className="fa fa-whatsapp"></i>
           </div>
         </div>
       </div>
-    </div>
+
   );
 }
 

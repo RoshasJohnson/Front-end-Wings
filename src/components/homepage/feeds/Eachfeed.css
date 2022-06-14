@@ -1,0 +1,78 @@
+.eachfeed:hover {
+  background-color: azure !important;
+  border-radius: 20px !important;
+  width: 100% !important;
+}
+
+.like {
+  width: 50px;
+
+  color: #1c9bf0;
+  margin: 1%;
+  cursor: pointer;
+}
+
+.like:hover {
+    color: #ff0000 !important;
+    /* background-color: #1c9bf0 !important;
+    border-radius: 20px !important; */
+}
+
+.liked {
+    width: 50px;
+    color: #1c9bf0;
+    margin: 1%;
+    cursor: pointer;
+}
+
+.comment {
+    width: 50px;
+    
+    color: #1c9bf0;
+    margin: 1%;
+    cursor: pointer;
+}
+.action-div{
+    justify-content: space-evenly;
+    width: 100%;
+    align-items: center;
+    display: flex;
+}
+
+.comment:hover {
+    color: #02ff85 !important;
+}
+
+.comment-div{
+    align-items: center;
+    margin: 6%;
+}
+
+
+.comment-author{
+    display: flex !important;
+    margin-left: 5%;
+    color: gray !important;
+
+}
+
+.comment-author-name{
+    margin-left: 2%;
+}
+.comment-box{
+    width: 100%;
+    
+
+}
+
+.comment-content{
+    margin-left: 10%;
+}
+
+
+img {
+    max-width: 100%;
+    width: 500px; 
+    height: auto;
+  }
+  

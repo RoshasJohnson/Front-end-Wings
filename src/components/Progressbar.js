@@ -8,4 +8,4 @@ export default function LinearIndeterminate() {
       <LinearProgress  color="warning"  />
     </Box>
   );
-}
+}   

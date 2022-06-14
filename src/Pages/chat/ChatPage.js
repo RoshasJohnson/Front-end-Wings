@@ -4,6 +4,7 @@ import { Box, Grid } from "@mui/material";
 import SideBar from "../../components/homepage/SideBar";
 import UserProfileCard from "../../components/UserProfileCard/UserProfileCard";
 import { Col, Container, Row } from "react-bootstrap";
+import Chat from '../../components/chat/Chat';
 function ChatPage() {
   return (
     <div className="homepage">
@@ -13,9 +14,9 @@ function ChatPage() {
           <SideBar />
         </Grid>
 
-        <Row style={{ marginTop: "10%" }}>
+        <Row style={{ marginTop: "7%" }}>
           <Col>
-          <Spinner animation="border" variant="warning" />
+            <Chat/>
           </Col>
         </Row>
       </Grid>

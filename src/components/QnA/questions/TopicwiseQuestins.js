@@ -6,14 +6,10 @@ import { Link, useLocation } from "react-router-dom";
 import axios from "../../../axios";
 import SideBar from "../../homepage/SideBar";
 import Card from "@mui/material/Card";
-import { useDispatch, useSelector } from "react-redux";
-import { questionFetch } from "../../../state/reducers/questions/questionReducer";
 import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import IconButton from "@mui/material/IconButton";
+
 import Typography from "@mui/material/Typography";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import Topicswise from "./Topicswise";
+
 
 function TopicwiseQuestins() {
   const data = useLocation();

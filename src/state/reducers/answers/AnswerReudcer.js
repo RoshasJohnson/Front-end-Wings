@@ -21,12 +21,15 @@ const answers = createSlice({
   initialState: {
     setAnswer: [],
     loading:false,
+    success:false,
     error :""
   },
   reducers: {
-    // setAnswer :(state,action)=>{
-    //   state.answer  = action.payload
-    // }
+    setSuccess: (state, action) => {
+      state.success = action.payload;
+    }
+
+
   },
   extraReducers:{
     [answerFetch.fulfilled]:(state,action)=>{
@@ -44,5 +47,5 @@ const answers = createSlice({
   }
 });
 
-export const {setAnswer}  = answers.actions
+export const {setSuccess}  = answers.actions
 export default answers.reducer

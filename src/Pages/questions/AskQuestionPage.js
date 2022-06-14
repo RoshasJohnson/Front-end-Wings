@@ -8,7 +8,7 @@ import QuestionForm from '../../components/QnA/questions/QuestionForm';
 function AskQuestionPage() {
     const navigate = useNavigate();
     const user = useSelector((state) => state.loginStatus);
-     console.log(user,"user status")
+     console.log(user,"user sfsdstatus")
     useEffect(() => {
    
     }, [])
