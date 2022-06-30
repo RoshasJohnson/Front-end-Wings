@@ -1,6 +1,9 @@
 {
   "name": "frontend",
   "version": "0.1.0",
+  "engines": {
+    "node": "17.x"
+  },
   "private": true,
   "proxy": "http://54.187.30.101:8000/",
   "dependencies": {
