@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./chat.css";
 import { Col, Container, Row } from "react-bootstrap";
-import { color } from "@mui/system";
+
 import ChastList from "./ChastList";
 import ChatPage from "./ChatPage";
 import { AxiosAuth } from "../../AxiosIns/AxiosAuth";
@@ -14,7 +14,6 @@ function Chat() {
   useEffect(() => {
     AxiosAuth.get("chat/get_chats").then((res) => {
       setChats(res.data);
-      console.log(res.data, "0000000000000000000000000");
     });
   }, []);
 

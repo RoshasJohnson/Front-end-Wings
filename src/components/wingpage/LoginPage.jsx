@@ -3,7 +3,7 @@ import "./Loginpage.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userVerify } from "../../state/reducers/auth/userauth";
-import GoogleAuth from "./GoogleAuth";
+
 
 
 
@@ -64,7 +64,6 @@ function LoginPage() {
         <button type="submit" className="loginbtn">
           Sign In
         </button>
-        <GoogleAuth/>
       </form>
       <div className="align-items-start">
         <Link  to ="register"> Create account</Link>

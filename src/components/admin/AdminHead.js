@@ -7,7 +7,6 @@ import { Grid } from "@mui/material";
 import AdminBar from "./AdminBar";
 import UserManagement from "./UserManagement";
 import AdminDashboard from "./dashboard/AdminDashboard";
-import Chartpage from "./dashboard/Chartpage";
 
 export default function AdminHead() {
   return (
@@ -20,7 +19,7 @@ export default function AdminHead() {
           </Grid>
           <Grid item xs={12} md={6}>
             <AdminDashboard/>
-            <Chartpage />
+  
           </Grid>
         </Grid>
       </Box>
