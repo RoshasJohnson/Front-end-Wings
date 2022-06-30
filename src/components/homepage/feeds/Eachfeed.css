@@ -76,3 +76,24 @@ img {
     height: auto;
   }
   
+
+
+.like{
+    width: 20px;
+    color: #1c9bf0;
+    margin: 2;
+    margin-top: 2;
+    cursor: pointer;
+}
+
+.liked{
+    margin-left: 2%;
+    color: #ff0000;
+}
+
+.like:hover{
+    color: #ff0000;
+}
+.liked:hover{
+    color: #1c9bf0;
+}

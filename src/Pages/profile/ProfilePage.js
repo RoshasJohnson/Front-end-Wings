@@ -7,6 +7,8 @@ import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Icon } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import UserTable from "../../components/admin/UserTable";
+import MyProfile from "../../components/myprofile/MyProfile";
 function ProfilePage() {
 
 
@@ -29,10 +31,7 @@ function ProfilePage() {
           <Grid item xs={0} md={3}>
             <SideBar />
           </Grid>
-
-          <Row style={{ marginTop: "10%" }}>
-            <Col>
-            <Button
+ {/* <Button
           style={{ backgroundColeor: "#1c9bf0",
           color: "white",
           fontWeight: '700'}} 
@@ -40,14 +39,21 @@ function ProfilePage() {
           onClick={logout}
         >
           Logout out
-        </Button>
-              <Spinner animation="border" variant="info" />
-            </Col>
-          </Row>
+        </Button> */}
+          <Grid item xs={12} md={9}>
+            <MyProfile/>
+          </Grid>
         </Grid>
       </Box>
     </div>
   );
 }
 
+
+
+
+
+              {/* <Spinner animation="border" variant="info" /> */}
+
+              
 export default ProfilePage;

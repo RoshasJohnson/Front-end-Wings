@@ -27,6 +27,7 @@ function UserTopic() {
     image: "",
     FName: "",
     LName: "",
+    profession: "",
     bio: "",
   });
 
@@ -56,9 +57,7 @@ function UserTopic() {
   const formData = new FormData();
   // const userid =  useSelector((state) => state.userAuth.loginStatus)
 
-  
-  const token = useSelector((state) => state.userAuth.userData.jwt.access)
-
+  const token = useSelector((state) => state.userAuth.userData.jwt.access);
 
   const formSubmit = (e) => {
     e.preventDefault();
@@ -87,9 +86,10 @@ function UserTopic() {
     // =====================================
     formData.append("Fname", details.FName);
     formData.append("Lname", details.LName);
+    formData.append("profession", details.profession);
     formData.append("bio", details.bio);
     formData.append("topics", Topic);
-    formData.append("avatar", details.image, "avatar.png");
+    formData.append("avatar", details.image);
 
     axios
       .put("/create-profile", formData, {
@@ -109,11 +109,10 @@ function UserTopic() {
   // =====================================
 
   return (
-    <div>
-      <h6>Build your profile</h6>
-      <form onSubmit={formSubmit} style={{ justifyContent: "center" }}>
+    <div style={{ width: "100%", background: "white" }}>
+      <form onSubmit={formSubmit}>
         <Avatar
-          style={{ alignItems: "center" }}
+          // style={{ alignItems: "center" }}
           src={details.image}
           sx={{ width: 356, height: 200 }}
         />
@@ -137,6 +136,14 @@ function UserTopic() {
 
         <MDBInput
           onChange={(e) => setDetails({ ...details, LName: e.target.value })}
+        />
+
+        <label style={{ color: "black" }} htmlFor="">
+          enter your Profession
+        </label>
+
+        <MDBInput
+          onChange={(e) => setDetails({ ...details, profession: e.target.value })}
         />
         <label style={{ color: "black" }} htmlFor="">
           Your interests

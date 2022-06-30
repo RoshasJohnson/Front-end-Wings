@@ -15,52 +15,48 @@ import Comment from "./Comment";
 import { AxiosAuth } from "../../../AxiosIns/AxiosAuth";
 
 function ShowFeed({ item }) {
-  const [like, setLike] = useState(false);
   const dispatch = useDispatch();
   const post = useSelector((state) => state.feeds.Feed);
   const loading = useSelector((state) => state.feeds.loading);
   //=========================================================//
   const user = useSelector((state) => state.userAuth.userData.user.id);
-
+  const [like, setLike] = useState(false);
   let is_liked = false;
+  console.log(item.post);
+ const [likeCounts, setLikeCounts] = useState(item.likeCount);
 
-    for (let i = 0; i < item.is_like.length; i++) {
-        if (item.is_like[i] === user) {
-            is_liked = true;
-        }
+  useEffect(() => {
+    if (item.is_like.includes(user)) {
+      setLike(true);
     }
+  }, []);
   //=========================================================//
 
 
-  console.log(is_liked, "is_liked");
 
   const [showComment, setShowComment] = useState(false);
 
-
   //=========================================================//
-    const handleLike = () => {
-         AxiosAuth.put("feeds/like", {
-            post_id: item.id
-        })
-        .then(res => {
-            console.log(res.data);
-            is_liked = true;
-        }
-        )
-        .catch(err => {
-            console.log(err);
-        }
-        );
-    }
-    //=========================================================//
+  const handleLike = () => {
+    // setLike(!like);
+    AxiosAuth.put("feeds/like", {
+      post_id: item.id,
+    })
+      .then((res) => {
+        console.log(res.data,'=========================================================');
+        setLikeCounts(res.data);
 
-
-
+        setLike(!like);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  //=========================================================//
 
   useEffect(() => {
     dispatch(feedFetch());
   }, []);
-
 
   return (
     <div className="eachfeed" style={{ marginTop: "10%" }}>
@@ -116,40 +112,17 @@ function ShowFeed({ item }) {
             >
               <div className="action-div">
                 <div style={{ display: "flex" }}>
-                  {is_liked ? (
-                      <>
-                    <FavoriteRoundedIcon
-                      style={{
-                        width: "20px",
-                        color: "#1c9bf0",
-                        margin: "2%",
-                        marginTop: "2%",
-                        cursor: "pointer",
-                      }}
-                      className="like"
-                      onClick={handleLike}
-                    />
-                    <p style={{ color: "gray", marginTop: "1%" }}>
-                    <small>{item.likeCount}</small>
-                  </p>
-                  </>
-                  ) : (
-                      <>
-                    <FavoriteBorderRoundedIcon
-                      style={{
-                        width: "20px",
-                        color: "#1c9bf0",
-                        margin: "1px",
-                        cursor: "pointer",
-                      }}
-                      onClick={handleLike}
-                      className="like"
+                 
+                      <FavoriteRoundedIcon
+                      
+                        className= {like ? "liked" : "like"}
+                        onClick={handleLike}
                       />
-                       <p style={{ color: "gray", marginTop: "1%" }}>
-                    <small>{item.likeCount}</small>
-                  </p>
-                  </>
-                  )}
+                      <p style={{ color: "gray", marginTop: "1%" }}>
+                        <small>{likeCounts}</small>
+                      </p>
+                    
+                 
                 </div>
 
                 <div

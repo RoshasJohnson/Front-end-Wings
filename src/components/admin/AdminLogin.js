@@ -16,20 +16,21 @@ import { adminLogin } from "../../state/reducers/auth/adminauth";
 const theme = createTheme();
 
 export default function AdminLogin() {
-
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const isAdmin   = useSelector((state) => state.Admin.isAdmin);
-    const [details, setDetails] = React.useState({ email: "", password: "" });
-    const handleSubmit = (event) => {
+  const adminStatus = useSelector((state) => state.Admin.isAdmin);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const isAdmin = useSelector((state) => state.Admin.isAdmin);
+  const [details, setDetails] = React.useState({ email: "", password: "" });
+  const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData();
     data.append("email", details.email);
     data.append("password", details.password);
     console.log(data);
     dispatch(adminLogin(data));
-    // navigate("/admin/dashboard");
-    
+    if (adminStatus) {
+      navigate("/admin/dashboard");
+    }
   };
 
   return (

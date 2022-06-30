@@ -15,9 +15,9 @@ function ChatPage() {
         </Grid>
 
         <Row style={{ marginTop: "7%" }}>
-          <Col>
+          
             <Chat/>
-          </Col>
+          
         </Row>
       </Grid>
     </Box>

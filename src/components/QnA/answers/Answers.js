@@ -36,8 +36,8 @@ function Answers({}) {
   const id = location.state.data.id;
   const qu_Id = location.state.data.questioner.id;
   //===============================================
-
-  const userData = useSelector((state) => state.userAuth.userData);
+  console.log(answer,"This is answer");
+    const userData = useSelector((state) => state.userAuth.userData);
   const { user } = userData;
   const [alert, setAlert] = useState(false);
   //===============================================
@@ -108,7 +108,7 @@ function Answers({}) {
                   </CardContent>
                   {/* <IconButton aria-label=""> */}
                   <div className="answer-controll">
-                    <AnswerControll  />
+                    <AnswerControll ans ={ans} />
                   </div>
                 </Card>
               </Row>

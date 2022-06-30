@@ -71,3 +71,13 @@ h1
     border-bottom: 1px dotted black;
 }
 
+.reportbtn{
+    margin-left: 2%;
+    color: #1c9bf0;
+    cursor: pointer;
+
+}
+
+.reportbtn:hover{
+    color: #cb0000;
+}

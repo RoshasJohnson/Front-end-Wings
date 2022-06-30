@@ -129,12 +129,6 @@ function QuestionForm() {
         <label style={{ color: "black" }} htmlFor="">
           Write your question
         </label>
-        {/* <MDBInput
-          name="question"
-          onChange={(e) => setDetails({ ...details, question: e.target.value })}
-          type="textarea"
-          rows="7"
-        /> */}
         <CKEditor
           editor={ClassicEditor}
           data="<p></p>"

@@ -7,7 +7,7 @@ export const adminLogin = createAsyncThunk(
   "ADMIN/Authentication",
   async (data) => {
     console.log("adminDetails", data);
-    const response = await axios.post("http://localhost:8000/superuser/", {email:"roshas@gmail.com",password:"roshas"});
+    const response = await axios.post("http://localhost:8000/adminpanel/superuser", {email:"roshas@gmail.com",password:"roshas"});
     console.log("response", response.data);
     return response.data;
   }
@@ -53,9 +53,9 @@ const AdminData = createSlice({
       state.admin = action.payload;
       state.loading = false;
       state.isAdmin = true;
-      localStorage.setItem("access", action.payload.jwt.access);
+      localStorage.setItem("adminAccess", action.payload.jwt.access);
       // localStorage.setItem("refresh", action.payload.jwt.refresh);
-      localStorage.setItem("userData", JSON.stringify(action.payload));
+      localStorage.setItem("AdminData", JSON.stringify(action.payload));
     },
     [adminLogin.pending]: (state, action) => {
       state.loading = true;
@@ -68,10 +68,10 @@ const AdminData = createSlice({
       state.admin = action.payload;
       state.loading = false;
       state.isAdmin = true;
-      localStorage.setItem("access", action.payload.jwt.access);
-      localStorage.setItem("refresh", action.payload.jwt.refresh);
+      localStorage.setItem("adminAccess", action.payload.jwt.access);
+      localStorage.setItem("adminrefresh", action.payload.jwt.refresh);
 
-      localStorage.setItem("userData", JSON.stringify(action.payload));
+      localStorage.setItem("AdminData", JSON.stringify(action.payload));
     },
     [adminRegister.pending]: (state, action) => {
       state.loading = true;

@@ -6,6 +6,12 @@ import fetchTopics  from "./reducers/questions/TopicReducer"
 import Modal  from "./reducers/feeds/addpost"
 import fetchFeed  from "./reducers/feeds/fetchpost"
 import AdminData from "./reducers/auth/adminauth"
+import Chat from "./reducers/chats/chatsreducer"
+import socket from "./reducers/chats/socket";
+import chatUser from "./reducers/chats/chatuser";
+import chatshowreducer from "./reducers/chats/chatshowreducer";
+
+
 
 
 export const store =  configureStore({
@@ -16,7 +22,11 @@ export const store =  configureStore({
         answers :AnswerReudcer,
         modal:Modal,
         feeds:fetchFeed,
-        Admin:AdminData
+        Admin:AdminData,
+        chat:Chat,
+        socket:socket,
+        userListenTo:chatUser,
+        chatShow :chatshowreducer 
           
     }
 }) 
