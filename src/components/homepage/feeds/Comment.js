@@ -19,7 +19,6 @@ function Comment({ id }) {
   console.log(id, "id--------------------");
   const handleSumbit = () => {
     console.log(input);
-    alert(input, "Comment Added");
     const data = new FormData();
     data.append("comment", input);
     data.append("parentPost", id);
