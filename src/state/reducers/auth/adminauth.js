@@ -7,7 +7,7 @@ export const adminLogin = createAsyncThunk(
   "ADMIN/Authentication",
   async (data) => {
     console.log("adminDetails", data);
-    const response = await axios.post("http://54.187.30.101/adminpanel/superuser", {email:"roshas@gmail.com",password:"roshas"});
+    const response = await axios.post("https://wingsbackend.tk/adminpanel/superuser", {email:"roshas@gmail.com",password:"roshas"});
     console.log("response", response.data);
     return response.data;
   }
