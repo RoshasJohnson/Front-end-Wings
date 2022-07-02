@@ -6,7 +6,7 @@
     "npm": "8.5.5"
   },
   "private": true,
-  "proxy": "http://54.187.30.101:8000/",
+  "proxy": "https://wingsbackend.tk/",
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^34.1.0",
     "@ckeditor/ckeditor5-react": "^5.0.2",
