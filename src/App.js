@@ -66,7 +66,7 @@ const socket = useSelector(state=>state.socket.socket)
     if (user) {
       try {
         if (!socket) {
-          const socket = io("http://localhost:8080/"); // connect to socket io
+          const socket = io("https://wingschantapp.herokuapp.com/"); // connect to socket io
           // set socket io instance in the redux state
           dispatch(setSocket(socket));
         }

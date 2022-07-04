@@ -17,6 +17,7 @@
   align-items: center;
   height: 55vh  ;
   padding: 1rem;
+  width: 100%;
 }
 .chatInput{
   height: 50px;

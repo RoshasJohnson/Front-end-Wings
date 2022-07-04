@@ -22,7 +22,7 @@ function ChatPage({curuser}) {
 
   const handleMessage = async () => {
     try {
-      const { data } = await axios.post("http://localhost:8080/send_messages", {
+      const { data } = await axios.post("https://wingschantapp.herokuapp.com/send_messages", {
         message: message,
         conversation_id: userListenTo.chatId,
         sender: user,
@@ -58,25 +58,29 @@ function ChatPage({curuser}) {
             var style = null;
             if (chat.sender == user) {
               style = {
-                backgroundColor: "white",
-                width: "fit-content",
-                borderRadius: "20px",
+                backgroundColor: "wheat",
+                width: "100%",
+            
                 padding: "5px",
                 marginBottom: "2px",
-               
+                float:"right"
                
               };
             } else {
               style = {
-                backgroundColor: "white",
-                width: "fit-content",
-                borderRadius: "20px",
+                backgroundColor: "gray",
+
+                width: "100%",
+              
                 padding: "5px",
                 marginBottom: "2px",
                };
             }
             return (
               <>
+              <div style={{width:"100%"}}>
+
+            
                 <div
                   // style={{
                   //   width: "fit-content",
@@ -91,7 +95,12 @@ function ChatPage({curuser}) {
                   <h6 className="text-info">
                     {user == chat.sender ? <p>You</p> : <p></p>}
                   </h6>
+                  <div >
+
                   <p> {chat.message} </p>
+                  </div>
+
+                </div>
                 </div>
               </>
             );

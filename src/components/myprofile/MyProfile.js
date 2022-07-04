@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./myprofile.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AxiosAuth } from "../../AxiosIns/AxiosAuth";
 import { Card, Form, Spinner } from "react-bootstrap";
 import { Avatar, Button, Stack } from "@mui/material";
@@ -18,18 +18,18 @@ import {
 } from "@heroicons/react/outline";
 
 function MyProfile() {
+
+  const navigate=  useNavigate()
   const [loading, setloading] = useState(false);
   const dispatch = useDispatch();
   const myprofile = useSelector((state) => state.userAuth.userData.user);
   let name = myprofile.fullname.split(" ");
-  console.log(name,'=====================');
   useEffect(() => {
     setloading(true);
     AxiosAuth.get("myprofile")
       .then((res) => {
         dispatch(setData(res.data));
         setloading(false);
-        console.log(res.data, "========--=---=========");
       })
       .catch((err) => {
         console.log(err);
@@ -113,6 +113,19 @@ console.log(details, "details");
                       {" "}
                       Edit
                     </Button>
+                    <Button
+                      onClick={() => {
+                        localStorage.removeItem("access")
+                        localStorage.setItem("loginStatus",false)
+                        localStorage.removeItem("userData")
+                        navigate("/")
+                      }}
+                      style={{ textTransform: "none", margin: "2%" }}
+                      variant="contained"
+                    >
+                      {" "}
+                     Logout
+                    </Button>
                   </div>
                 </Stack>
                 <div style={{ with: "fit-content" }}>
@@ -143,6 +156,7 @@ console.log(details, "details");
             <Typography id="modal-modal-title" variant="h6" component="h2">
               Edit profile
             </Typography>
+            
             <Typography id="modal-modal-description">
               <div>
                 <Form>

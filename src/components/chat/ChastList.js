@@ -18,7 +18,7 @@ function ChastList({ chat, chatId }) {
     
     try {
       const { data } = await axios.get(
-        "http://localhost:8080/messages?conversation_id=" + parseInt(chatId)
+        "https://wingsfrontend.herokuapp.com/messages?conversation_id=" + parseInt(chatId)
       );
       console.log(data.messages, "+++++++");
      
